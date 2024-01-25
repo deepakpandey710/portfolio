@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -43,6 +44,41 @@ export const Contact = () => {
     }
   };
 
+  const onClickButton = (event) => {
+    event.preventDefault();
+
+    // const fullName = document.getElementById("fullName").value;
+    // const contactNumber = document.getElementById("contactNumber").value;
+    // const userEmail = document.getElementById("email").value;
+    // const message = document.getElementById("message").value;
+
+    // console.log("Full Name:", fullName);
+    // console.log("Contact Number:", contactNumber);
+    // console.log("Email:", userEmail);
+    // console.log("Message:", message);
+
+    // const templateParams = {
+    //   fullName,
+    //   contactNumber,
+    //   userEmail,
+    //   message,
+    // };
+
+    const serviceId = "service_v0wnuok";
+    const templateId = "template_ijtp1o6";
+    const publicKey = "Ojs0-uDRWLtuB4Z6P";
+
+    emailjs.send(serviceId, templateId, formDetails, publicKey).then(
+      (response) => {
+        setStatus({ succes: true, message: 'Message sent successfully'});
+      },
+      (error) => {
+        setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
+      }
+    );
+
+  };
+
   return (
     <section className="contact" id="connect">
       <Container>
@@ -59,7 +95,7 @@ export const Contact = () => {
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <h2>Get In Touch</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={onClickButton}>
                   <Row>
                     <Col size={12} sm={6} className="px-1">
                       <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />

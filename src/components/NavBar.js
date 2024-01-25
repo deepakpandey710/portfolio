@@ -47,12 +47,13 @@ export const NavBar = () => {
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
+              <Nav.Link href="https://drive.google.com/file/d/1T-b2HeOSKCJJGKo2PX29GZT7nmXt73HU/view?usp=sharing" target="_blank" className='navbar-link'>Resume</Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                <a href="https://www.linkedin.com/in/deepakpandey710/"><img src={navIcon1} alt="" /></a>
-                <a href="https://www.facebook.com/deepakpandey7100/"><img src={navIcon2} alt="" /></a>
-                <a href="https://www.instagram.com/ideepakpandeyy/"><img src={navIcon3} alt="" /></a>
+                <a href="https://www.linkedin.com/in/deepakpandey710/" target="_blank"><img src={navIcon1} alt="" /></a>
+                <a href="https://www.facebook.com/deepakpandey7100/" target="_blank"><img src={navIcon2} alt="" /></a>
+                <a href="https://www.instagram.com/ideepakpandeyy/" target="_blank"><img src={navIcon3} alt="" /></a>
               </div>
               <HashLink to='#connect'>
                 <button className="vvd"><span>Let’s Connect</span></button>
